@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="《Breaking Bad》沉浸式剧情档案：人物关系、五季剧情流程与关键事件。"
+    />
+    <meta name="theme-color" content="#07110d" />
+    <title>Breaking Bad · 化学反应式剧情档案</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__formula">
+        <span class="element-tile element-tile--large">
+          <small>35</small>
+          <strong>Br</strong>
+          <em>Bromine</em>
+        </span>
+        <span class="loader__bond"></span>
+        <span class="element-tile element-tile--large">
+          <small>56</small>
+          <strong>Ba</strong>
+          <em>Barium</em>
+        </span>
+      </div>
+      <p>正在建立反应条件</p>
+      <div class="loader__bar"><span></span></div>
+    </div>
+
+    <div class="page-progress" aria-hidden="true"><span id="pageProgress"></span></div>
+    <div class="ambient-noise" aria-hidden="true"></div>
+
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="#top" aria-label="Breaking Bad 剧情档案首页">
+        <span class="brand__tile"><small>35</small><b>Br</b></span>
+        <span class="brand__word">eaking</span>
+        <span class="brand__tile"><small>56</small><b>Ba</b></span>
+        <span class="brand__word">d</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="打开导航"
+        aria-controls="mainNav"
+        aria-expanded="false"
+      >
+        <span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <a href="#premise">反应起点</a>
+        <a href="#characters">人物档案</a>
+        <a href="#timeline">剧情流程</a>
+        <a href="#events">关键事件</a>
+      </nav>
+
+      <div class="spoiler-chip"><i></i> 全剧剧透</div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <canvas id="chemCanvas" aria-hidden="true"></canvas>
+        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="desert-layer desert-layer--far" aria-hidden="true"></div>
+        <div class="desert-layer desert-layer--near" aria-hidden="true"></div>
+
+        <div class="hero__content shell">
+          <div class="hero__copy reveal">
+            <div class="eyebrow">
+              <span>ALBUQUERQUE · NEW MEXICO</span>
+              <b>2008—2010</b>
+            </div>
+
+            <h1 id="hero-title">
+              <span class="hero__line">每一次选择</span>
+              <span class="hero__line hero__line--acid">都在改变反应式</span>
+            </h1>
+
+            <p class="hero__lead">
+              一位普通化学老师，在绝境中点燃第一簇蓝色火焰。
+              从“为了家人”到“为了自己”，他制造的不只是毒品，还有一场无法逆转的人性连锁反应。
+            </p>
+
+            <div class="hero__actions">
+              <a class="button button--primary magnetic" href="#timeline">
+                <span>进入剧情时间线</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h13M13 6l6 6-6 6" />
+                </svg>
+              </a>
+              <a class="button button--ghost magnetic" href="#characters">
+                <span>打开人物档案</span>
+              </a>
+            </div>
+
+            <div class="hero__meta">
+              <div><strong>05</strong><span>季</span></div>
+              <i></i>
+              <div><strong>62</strong><span>集</span></div>
+              <i></i>
+              <div><strong>01</strong><span>场蜕变</span></div>
+            </div>
+          </div>
+
+          <div class="hero__visual reveal" data-delay="180">
+            <div class="scene-3d" id="heroScene" aria-label="旋转的化学元素立方体装置">
+              <div class="scene-3d__aura"></div>
+
+              <div class="orbital orbital--one" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+              <div class="orbital orbital--two" aria-hidden="true">
+                <i></i><i></i>
+              </div>
+
+              <div class="chem-cube-wrap">
+                <div class="chem-cube">
+                  <div class="chem-cube__face chem-cube__face--front">
+                    <small>35</small><b>Br</b><span>Bromine</span>
+                  </div>
+                  <div class="chem-cube__face chem-cube__face--back">
+                    <small>56</small><b>Ba</b><span>Barium</span>
+                  </div>
+                  <div class="chem-cube__face chem-cube__face--right">
+                    <small>62</small><b>Ep</b><span>Episodes</span>
+                  </div>
+                  <div class="chem-cube__face chem-cube__face--left">
+                    <small>05</small><b>S</b><span>Seasons</span>
+                  </div>
+                  <div class="chem-cube__face chem-cube__face--top">
+                    <small>ABQ</small><b>505</b><span>New Mexico</span>
+                  </div>
+                  <div class="chem-cube__face chem-cube__face--bottom">
+                    <small>He</small><b>W.W.</b><span>Heisenberg</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="crystal-cluster crystal-cluster--left" aria-hidden="true">
+                <i></i><i></i><i></i><i></i>
+              </div>
+              <div class="crystal-cluster crystal-cluster--right" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+
+              <div class="floating-label floating-label--top">
+                <span>REACTION</span>
+                <b>进行中</b>
+              </div>
+              <div class="floating-label floating-label--bottom">
+                <span>PURITY</span>
+                <b>99.1%</b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="scroll-cue" type="button" data-scroll="#premise" aria-label="向下滚动">
+          <span>SCROLL TO REACT</span>
+          <i><b></b></i>
+        </button>
+      </section>
+
+      <section class="signal-strip" aria-label="剧情主题">
+        <div class="signal-strip__track">
+          <span>CHEMISTRY IS CHANGE</span><i>◆</i>
+          <span>EVERY CHOICE HAS A HALF-LIFE</span><i>◆</i>
+          <span>FROM WALTER WHITE TO HEISENBERG</span><i>◆</i>
+          <span>CHEMISTRY IS CHANGE</span><i>◆</i>
+          <span>EVERY CHOICE HAS A HALF-LIFE</span><i>◆</i>
+          <span>FROM WALTER WHITE TO HEISENBERG</span><i>◆</i>
+        </div>
+      </section>
+
+      <section class="premise section" id="premise" aria-labelledby="premise-title">
+        <div class="shell">
+          <header class="section-heading reveal">
+            <div class="section-index"><span>01</span><i></i><b>反应起点</b></div>
+            <div>
+              <p class="kicker">THE CATALYST</p>
+              <h2 id="premise-title">当生存成为借口，<br />欲望便有了化学式。</h2>
+            </div>
+            <p class="section-heading__note">
+              故事的真正问题从来不是“他为什么开始”，而是“他究竟在何时决定不再停下”。
+            </p>
+          </header>
+
+          <div class="premise__layout">
+            <article class="case-file tilt-card reveal" data-tilt>
+              <div class="case-file__corner">CASE 737</div>
+              <div class="case-file__topline">
+                <span>SUBJECT: WALTER H. WHITE</span>
+                <span>STATUS: VOLATILE</span>
+              </div>
+              <div class="case-file__body">
+                <div class="case-file__portrait case-file__portrait--photo">
+                  <img
+                    src="assets/characters/walter.png"
+                    alt="沃尔特·怀特戴着海森堡帽子的角色宣传照"
+                  />
+                  <div class="portrait-lines"></div>
+                  <span>W</span>
+                  <b>H</b>
+                  <i>W</i>
+                </div>
+                <div class="case-file__data">
+                  <span class="redaction">PERSONAL HISTORY</span>
+                  <h3>一个被低估的人<br />如何创造自己的王国</h3>
+                  <p>
+                    癌症诊断是催化剂，贫困与不甘是反应物。
+                    但随着权力、尊严与控制欲不断升温，原本用于保护家庭的方案，最终将家庭推向爆炸中心。
+                  </p>
+                  <dl>
+                    <div><dt>初始身份</dt><dd>高中化学教师</dd></div>
+                    <div><dt>反应条件</dt><dd>绝症 / 债务 / 自尊</dd></div>
+                    <div><dt>最终产物</dt><dd>Heisenberg</dd></div>
+                  </dl>
+                </div>
+              </div>
+              <div class="case-file__stamp">CLASSIFIED</div>
+              <div class="case-file__shine"></div>
+            </article>
+
+            <aside class="reaction-column reveal" data-delay="120">
+              <div class="reaction-equation">
+                <div class="reaction-equation__node">
+                  <span>01</span><strong>恐惧</strong><small>FEAR</small>
+                </div>
+                <b>+</b>
+                <div class="reaction-equation__node">
+                  <span>02</span><strong>自尊</strong><small>PRIDE</small>
+                </div>
+                <b>+</b>
+                <div class="reaction-equation__node">
+                  <span>03</span><strong>权力</strong><small>POWER</small>
+                </div>
+                <b>=</b>
+                <div class="reaction-equation__node reaction-equation__node--result">
+                  <span>99.1</span><strong>海森堡</strong><small>HEISENBERG</small>
+                </div>
+              </div>
+              <div class="reaction-note">
+                <span>核心命题</span>
+                <p>化学研究变化，剧情审视一个人如何在变化中暴露真正的自己。</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="characters section section--dark" id="characters" aria-labelledby="characters-title">
+        <div class="characters__glow" aria-hidden="true"></div>
+        <div class="shell">
+          <header class="section-heading section-heading--light reveal">
+            <div class="section-index"><span>02</span><i></i><b>人物档案</b></div>
+            <div>
+              <p class="kicker">THE COMPOUNDS</p>
+              <h2 id="characters-title">每个人，都是<br />反应中的变量。</h2>
+            </div>
+            <p class="section-heading__note">
+              点击人物卡片翻转档案。正面是他们被看见的身份，背面是他们真正推动剧情的力量。
+            </p>
+          </header>
+
+          <div class="character-grid">
+            <button class="character-card reveal" type="button" aria-pressed="false" data-character="walter">
+              <span class="character-card__inner">
+                <span class="character-card__face character-card__front">
+                  <span class="character-card__number">01</span>
+                  <span class="character-portrait character-portrait--walter">
+                    <img
+                      src="assets/characters/walter.png"
+                      alt="沃尔特·怀特角色宣传照"
+                      loading="lazy"
+                    />
+                    <span class="character-portrait__orbit"></span>
+                    <em>WW</em>
+                  </span>
+                  <span class="character-card__role">主反应物 · PROTAGONIST</span>
+                  <strong>沃尔特·怀特</strong>
+                  <small>Walter White / Heisenberg</small>
+                  <span class="character-card__hint">点击翻转 <i>↗</i></span>
+                </span>
+                <span class="character-card__face character-card__back">
+                  <span class="character-card__symbol">W</span>
+                  <span class="character-card__back-index">01 / 06</span>
+                  <strong>尊严逐渐变成支配欲</strong>
+                  <p>
+                    他以家人的未来为起点，却在一次次“必要选择”中迷恋上不可替代的感觉。
+                    海森堡并非面具，而是被压抑人生释放出的真实一面。
+                  </p>
+                  <span class="character-card__arc"><i style="--level: 96%"></i></span>
+                  <span class="character-card__trait">野心 / 控制 / 精确</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="character-card reveal" type="button" aria-pressed="false" data-character="jesse" data-delay="60">
+              <span class="character-card__inner">
+                <span class="character-card__face character-card__front">
+                  <span class="character-card__number">02</span>
+                  <span class="character-portrait character-portrait--jesse">
+                    <img
+                      src="assets/characters/jesse.png"
+                      alt="杰西·平克曼角色宣传照"
+                      loading="lazy"
+                    />
+                    <span class="character-portrait__orbit"></span>
+                    <em>JP</em>
+                  </span>
+                  <span class="character-card__role">不稳定剂 · CONSCIENCE</span>
+                  <strong>杰西·平克曼</strong>
+                  <small>Jesse Pinkman</small>
+                  <span class="character-card__hint">点击翻转 <i>↗</i></span>
+                </span>
+                <span class="character-card__face character-card__back">
+                  <span class="character-card__symbol">J</span>
+                  <span class="character-card__back-index">02 / 06</span>
+                  <strong>最混乱的人，守住最多人性</strong>
+                  <p>
+                    从不被认可的学生到被操控的合伙人，杰西承担了帝国扩张最直接的情感代价。
+                    他的愧疚、善意与求生欲，让故事始终保留人的温度。
+                  </p>
+                  <span class="character-card__arc"><i style="--level: 74%"></i></span>
+                  <span class="character-card__trait">良知 / 创伤 / 自由</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="character-card reveal" type="button" aria-pressed="false" data-character="skyler" data-delay="120">
+              <span class="character-card__inner">
+                <span class="character-card__face character-card__front">
+                  <span class="character-card__number">03</span>
+                  <span class="character-portrait character-portrait--skyler">
+                    <img
+                      src="assets/characters/skyler.png"
+                      alt="斯凯勒·怀特角色宣传照"
+                      loading="lazy"
+                    />
+                    <span class="character-portrait__orbit"></span>
+                    <em>SW</em>
+                  </span>
+                  <span class="character-card__role">抑制剂 · FAMILY</span>
+                  <strong>斯凯勒·怀特</strong>
+                  <small>Skyler White</small>
+                  <span class="character-card__hint">点击翻转 <i>↗</i></span>
+                </span>
+                <span class="character-card__face character-card__back">
+                  <span class="character-card__symbol">S</span>
+                  <span class="character-card__back-index">03 / 06</span>
+                  <strong>家庭从庇护所变成封闭容器</strong>
+                  <p>
+                    她最早嗅到谎言，也最清楚家庭正在被什么侵蚀。
+                    从抵抗到被迫协作，她的选择呈现了亲密关系中的恐惧、责任与困局。
+                  </p>
+                  <span class="character-card__arc"><i style="--level: 67%"></i></span>
+                  <span class="character-card__trait">警觉 / 保护 / 困守</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="character-card reveal" type="button" aria-pressed="false" data-character="hank">
+              <span class="character-card__inner">
+                <span class="character-card__face character-card__front">
+                  <span class="character-card__number">04</span>
+                  <span class="character-portrait character-portrait--hank">
+                    <img
+                      src="assets/characters/hank.png"
+                      alt="汉克·施拉德角色宣传照"
+                      loading="lazy"
+                    />
+                    <span class="character-portrait__orbit"></span>
+                    <em>HS</em>
+                  </span>
+                  <span class="character-card__role">检测试剂 · PURSUIT</span>
+                  <strong>汉克·施拉德</strong>
+                  <small>Hank Schrader</small>
+                  <span class="character-card__hint">点击翻转 <i>↗</i></span>
+                </span>
+                <span class="character-card__face character-card__back">
+                  <span class="character-card__symbol">H</span>
+                  <span class="character-card__back-index">04 / 06</span>
+                  <strong>猎人离答案越近，家就越危险</strong>
+                  <p>
+                    缉毒探员与亲密家人两种身份构成最大的戏剧反差。
+                    他从自负、创伤中重建，并凭执拗追踪那位始终坐在餐桌对面的敌人。
+                  </p>
+                  <span class="character-card__arc"><i style="--level: 82%"></i></span>
+                  <span class="character-card__trait">执着 / 勇气 / 盲点</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="character-card reveal" type="button" aria-pressed="false" data-character="gus" data-delay="60">
+              <span class="character-card__inner">
+                <span class="character-card__face character-card__front">
+                  <span class="character-card__number">05</span>
+                  <span class="character-portrait character-portrait--gus">
+                    <img
+                      src="assets/characters/gus.png"
+                      alt="古斯塔沃·弗林角色剧照"
+                      loading="lazy"
+                    />
+                    <span class="character-portrait__orbit"></span>
+                    <em>GF</em>
+                  </span>
+                  <span class="character-card__role">稳定剂 · ORDER</span>
+                  <strong>古斯塔沃·弗林</strong>
+                  <small>Gustavo Fring</small>
+                  <span class="character-card__hint">点击翻转 <i>↗</i></span>
+                </span>
+                <span class="character-card__face character-card__back">
+                  <span class="character-card__symbol">G</span>
+                  <span class="character-card__back-index">05 / 06</span>
+                  <strong>绝对秩序遇上不可控的自尊</strong>
+                  <p>
+                    礼貌的餐厅老板与冷静的地下帝王共存于同一张脸。
+                    他用耐心、制度和复仇搭建机器，却低估了沃尔特破坏规则的能力。
+                  </p>
+                  <span class="character-card__arc"><i style="--level: 89%"></i></span>
+                  <span class="character-card__trait">秩序 / 耐心 / 复仇</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="character-card reveal" type="button" aria-pressed="false" data-character="saul" data-delay="120">
+              <span class="character-card__inner">
+                <span class="character-card__face character-card__front">
+                  <span class="character-card__number">06</span>
+                  <span class="character-portrait character-portrait--saul">
+                    <img
+                      src="assets/characters/saul.png"
+                      alt="索尔·古德曼角色宣传照"
+                      loading="lazy"
+                    />
+                    <span class="character-portrait__orbit"></span>
+                    <em>SG</em>
+                  </span>
+                  <span class="character-card__role">催化剂 · FIXER</span>
+                  <strong>索尔·古德曼</strong>
+                  <small>Saul Goodman</small>
+                  <span class="character-card__hint">点击翻转 <i>↗</i></span>
+                </span>
+                <span class="character-card__face character-card__back">
+                  <span class="character-card__symbol">S</span>
+                  <span class="character-card__back-index">06 / 06</span>
+                  <strong>只要价格合适，问题总有出口</strong>
+                  <p>
+                    他把法律变成犯罪产业的接口，把每次危机包装成一项服务。
+                    轻佻幽默背后，是一套让帝国得以快速运转的灰色基础设施。
+                  </p>
+                  <span class="character-card__arc"><i style="--level: 61%"></i></span>
+                  <span class="character-card__trait">机变 / 交易 / 逃生</span>
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="timeline section" id="timeline" aria-labelledby="timeline-title">
+        <div class="timeline__topography" aria-hidden="true"></div>
+        <div class="shell">
+          <header class="section-heading reveal">
+            <div class="section-index"><span>03</span><i></i><b>剧情流程</b></div>
+            <div>
+              <p class="kicker">THE REACTION PATH</p>
+              <h2 id="timeline-title">五个阶段，<br />一条不可逆路径。</h2>
+            </div>
+            <p class="section-heading__note">
+              选择季数观察“反应温度”的变化，再沿时间线回看帝国如何从一辆房车扩散到整座城市。
+            </p>
+          </header>
+
+          <div class="season-lab reveal">
+            <div class="season-tabs" role="tablist" aria-label="选择季度">
+              <button class="season-tab is-active" type="button" role="tab" aria-selected="true" data-season="0">
+                <span>01</span><b>点燃</b>
+              </button>
+              <button class="season-tab" type="button" role="tab" aria-selected="false" data-season="1">
+                <span>02</span><b>扩散</b>
+              </button>
+              <button class="season-tab" type="button" role="tab" aria-selected="false" data-season="2">
+                <span>03</span><b>加压</b>
+              </button>
+              <button class="season-tab" type="button" role="tab" aria-selected="false" data-season="3">
+                <span>04</span><b>爆炸</b>
+              </button>
+              <button class="season-tab" type="button" role="tab" aria-selected="false" data-season="4">
+                <span>05</span><b>沉降</b>
+              </button>
+            </div>
+
+            <div class="season-stage" id="seasonStage" style="--active-season: 0">
+              <div class="season-stage__copy" aria-live="polite">
+                <span class="season-stage__label">SEASON 01 · IGNITION</span>
+                <h3 id="seasonStageTitle">点燃：绝境中的第一锅</h3>
+                <p id="seasonStageText">
+                  癌症诊断击碎日常，沃尔特找上昔日学生杰西，在新墨西哥荒漠的房车里完成第一次制毒。
+                  求生方案很快遭遇现实暴力，也让他第一次发现自己擅长掌控危险。
+                </p>
+                <div class="temperature">
+                  <span>反应温度</span>
+                  <i><b id="temperatureBar" style="width: 24%"></b></i>
+                  <strong id="temperatureValue">24%</strong>
+                </div>
+              </div>
+
+              <div class="season-helix" aria-hidden="true">
+                <div class="season-slab" style="--i: 0"><span>I</span><b>IGNITION</b><i></i></div>
+                <div class="season-slab" style="--i: 1"><span>II</span><b>DIFFUSION</b><i></i></div>
+                <div class="season-slab" style="--i: 2"><span>III</span><b>PRESSURE</b><i></i></div>
+                <div class="season-slab" style="--i: 3"><span>IV</span><b>DETONATION</b><i></i></div>
+                <div class="season-slab" style="--i: 4"><span>V</span><b>FALLOUT</b><i></i></div>
+                <div class="season-helix__core"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-road">
+            <div class="story-road__line" aria-hidden="true">
+              <span id="storyLineProgress"></span>
+            </div>
+
+            <article class="story-beat reveal" data-season-link="0">
+              <div class="story-beat__marker"><span>01</span><i></i></div>
+              <div class="story-beat__card tilt-card" data-tilt>
+                <div class="story-beat__meta"><span>S01</span><b>IGNITION</b><time>2008</time></div>
+                <h3>诊断、房车与第一次越界</h3>
+                <p>
+                  沃尔特确诊肺癌后，与杰西组成最不稳定的搭档。
+                  在荒漠房车中，他用化学天赋制造出高纯度产品，也用化学第一次解决致命威胁。
+                </p>
+                <ul>
+                  <li>癌症成为催化剂</li>
+                  <li>蓝色产品初次出现</li>
+                  <li>“为了家人”的叙事成立</li>
+                </ul>
+              </div>
+              <div class="story-beat__ghost">01</div>
+            </article>
+
+            <article class="story-beat story-beat--right reveal" data-season-link="1">
+              <div class="story-beat__marker"><span>02</span><i></i></div>
+              <div class="story-beat__card tilt-card" data-tilt>
+                <div class="story-beat__meta"><span>S02</span><b>DIFFUSION</b><time>2008—09</time></div>
+                <h3>产品扩散，后果开始连锁</h3>
+                <p>
+                  图科带来的暴力让二人看见市场规则；索尔与古斯先后出现，
+                  地下产业链逐渐成形。与此同时，谎言、悲剧与偶然在城市上空汇合。
+                </p>
+                <ul>
+                  <li>街头交易转向系统分销</li>
+                  <li>家庭关系出现结构性裂缝</li>
+                  <li>个人选择形成公共灾难</li>
+                </ul>
+              </div>
+              <div class="story-beat__ghost">02</div>
+            </article>
+
+            <article class="story-beat reveal" data-season-link="2">
+              <div class="story-beat__marker"><span>03</span><i></i></div>
+              <div class="story-beat__card tilt-card" data-tilt>
+                <div class="story-beat__meta"><span>S03</span><b>PRESSURE</b><time>2009</time></div>
+                <h3>超级实验室里的高压反应</h3>
+                <p>
+                  沃尔特进入古斯的工业化体系，却无法接受自己只是可替换的技术环节。
+                  杰西的失控、汉克的追查与盖尔的存在，将各方推到临界点。
+                </p>
+                <ul>
+                  <li>地下实验室投入运转</li>
+                  <li>师徒关系转为相互依赖</li>
+                  <li>替代方案触发致命选择</li>
+                </ul>
+              </div>
+              <div class="story-beat__ghost">03</div>
+            </article>
+
+            <article class="story-beat story-beat--right reveal" data-season-link="3">
+              <div class="story-beat__marker"><span>04</span><i></i></div>
+              <div class="story-beat__card tilt-card" data-tilt>
+                <div class="story-beat__meta"><span>S04</span><b>DETONATION</b><time>2009</time></div>
+                <h3>两位操盘者的零和棋局</h3>
+                <p>
+                  古斯试图彻底移除风险，沃尔特则用更危险的方式证明自己不可被清除。
+                  操控杰西、制造怀疑、利用复仇，最终把长期积累的压力集中引爆。
+                </p>
+                <ul>
+                  <li>信任成为最稀缺的资源</li>
+                  <li>毒物被用作心理武器</li>
+                  <li>护理院爆炸终结旧秩序</li>
+                </ul>
+              </div>
+              <div class="story-beat__ghost">04</div>
+            </article>
+
+            <article class="story-beat reveal" data-season-link="4">
+              <div class="story-beat__marker"><span>05</span><i></i></div>
+              <div class="story-beat__card tilt-card" data-tilt>
+                <div class="story-beat__meta"><span>S05</span><b>FALLOUT</b><time>2009—10</time></div>
+                <h3>帝国登顶，然后全面沉降</h3>
+                <p>
+                  没有古斯之后，沃尔特亲自建立帝国。
+                  但汉克在最日常的瞬间发现真相，所有被推迟的代价由此同时抵达：家庭、伙伴与身份一起崩塌。
+                </p>
+                <ul>
+                  <li>磁铁、列车与海外扩张</li>
+                  <li>“W.W.”让追猎回到家中</li>
+                  <li>最终清算发生在实验室</li>
+                </ul>
+              </div>
+              <div class="story-beat__ghost">05</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="events section section--acid" id="events" aria-labelledby="events-title">
+        <div class="events__mesh" aria-hidden="true"></div>
+        <div class="shell">
+          <header class="section-heading section-heading--light reveal">
+            <div class="section-index"><span>04</span><i></i><b>关键事件</b></div>
+            <div>
+              <p class="kicker">INCIDENT ARCHIVE</p>
+              <h2 id="events-title">八个瞬间，<br />改变反应方向。</h2>
+            </div>
+            <p class="section-heading__note">
+              这不是完整的事件清单，而是八个真正改变人物关系与权力结构的转折点。点击档案查看影响。
+            </p>
+          </header>
+
+          <div class="event-desk reveal">
+            <div class="event-desk__surface">
+              <button class="event-card event-card--large" type="button" data-event="diagnosis">
+                <span class="event-card__pin"></span>
+                <span class="event-card__photo event-card__photo--desert">
+                  <i></i><b></b><em>ABQ</em>
+                </span>
+                <span class="event-card__meta"><b>INCIDENT 001</b><time>S01 · E01</time></span>
+                <strong>癌症诊断</strong>
+                <span class="event-card__summary">所有借口与欲望的第一枚催化剂。</span>
+                <span class="event-card__open">OPEN FILE ↗</span>
+              </button>
+
+              <button class="event-card" type="button" data-event="first-cook">
+                <span class="event-card__pin"></span>
+                <span class="event-card__photo event-card__photo--rv">
+                  <i></i><b></b><em>RV</em>
+                </span>
+                <span class="event-card__meta"><b>INCIDENT 002</b><time>S01</time></span>
+                <strong>荒漠第一锅</strong>
+                <span class="event-card__summary">教师与学生成为命运共同体。</span>
+                <span class="event-card__open">OPEN FILE ↗</span>
+              </button>
+
+              <button class="event-card event-card--tall" type="button" data-event="jane">
+                <span class="event-card__pin"></span>
+                <span class="event-card__photo event-card__photo--sky">
+                  <i></i><b></b><em>737</em>
+                </span>
+                <span class="event-card__meta"><b>INCIDENT 003</b><time>S02</time></span>
+                <strong>蝴蝶效应</strong>
+                <span class="event-card__summary">一次冷眼旁观，在城市上空形成回声。</span>
+                <span class="event-card__open">OPEN FILE ↗</span>
+              </button>
+
+              <button class="event-card" type="button" data-event="superlab">
+                <span class="event-card__pin"></span>
+                <span class="event-card__photo event-card__photo--lab">
+                  <i></i><b></b><em>LAB</em>
+                </span>
+                <span class="event-card__meta"><b>INCIDENT 004</b><time>S03</time></span>
+                <strong>超级实验室</strong>
+                <span class="event-card__summary">手工作坊进入工业时代，也进入牢笼。</span>
+                <span class="event-card__open">OPEN FILE ↗</span>
+              </button>
+
+              <button class="event-card event-card--wide" type="button" data-event="gale">
+                <span class="event-card__pin"></span>
+                <span class="event-card__photo event-card__photo--door">
+                  <i></i><b></b><em>G.B.</em>
+                </span>
+                <span class="event-card__meta"><b>INCIDENT 005</b><time>S03 · FINALE</time></span>
+                <strong>盖尔门前的枪声</strong>
+                <span class="event-card__summary">杰西扣下扳机，师徒再也无法回到原点。</span>
+                <span class="event-card__open">OPEN FILE ↗</span>
+              </button>
+
+              <button class="event-card event-card--tall" type="button" data-event="faceoff">
+                <span class="event-card__pin"></span>
+                <span class="event-card__photo event-card__photo--bell">
+                  <i></i><b></b><em>DING</em>
+                </span>
+                <span class="event-card__meta"><b>INCIDENT 006</b><time>S04 · FINALE</time></span>
+                <strong>最后一次按铃</strong>
+                <span class="event-card__summary">复仇成为引线，护理院成为爆心。</span>
+                <span class="event-card__open">OPEN FILE ↗</span>
+              </button>
+
+              <button class="event-card" type="button" data-event="hank">
+                <span class="event-card__pin"></span>
+                <span class="event-card__photo event-card__photo--book">
+                  <i></i><b></b><em>W.W.</em>
+                </span>
+                <span class="event-card__meta"><b>INCIDENT 007</b><time>S05</time></span>
+                <strong>一本书的答案</strong>
+                <span class="event-card__summary">追查一年的人，原来一直坐在餐桌边。</span>
+                <span class="event-card__open">OPEN FILE ↗</span>
+              </button>
+
+              <button class="event-card event-card--large" type="button" data-event="felina">
+                <span class="event-card__pin"></span>
+                <span class="event-card__photo event-card__photo--final">
+                  <i></i><b></b><em>FeLiNa</em>
+                </span>
+                <span class="event-card__meta"><b>INCIDENT 008</b><time>S05 · E16</time></span>
+                <strong>回到实验室</strong>
+                <span class="event-card__summary">承认、清算与最后一次化学反应。</span>
+                <span class="event-card__open">OPEN FILE ↗</span>
+              </button>
+            </div>
+            <div class="event-desk__legend">
+              <span><i></i> 每一条红线，都是一段因果</span>
+              <b>DEA EVIDENCE BOARD / ABQ-2008</b>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="equation section" aria-labelledby="equation-title">
+        <div class="equation__sun" aria-hidden="true"></div>
+        <div class="equation__road" aria-hidden="true">
+          <span></span>
+        </div>
+        <div class="shell">
+          <div class="equation__content reveal">
+            <p class="kicker">THE FINAL EQUATION</p>
+            <h2 id="equation-title">
+              他以为自己在制造<br />
+              <span>蓝色晶体</span>，<br />
+              其实制造的是自己。
+            </h2>
+            <p>
+              《Breaking Bad》的完整反应式，不是一个好人突然变坏，
+              而是一个人不断用现实为选择辩护，直到再也无法区分“不得不做”与“我想要做”。
+            </p>
+            <a class="button button--primary magnetic" href="#top">
+              <span>返回反应起点</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11l6-6 6 6" /></svg>
+            </a>
+          </div>
+
+          <div class="equation__object reveal" data-delay="120" aria-hidden="true">
+            <div class="hat-3d">
+              <div class="hat-3d__crown"><i></i><b></b></div>
+              <div class="hat-3d__brim"></div>
+              <div class="hat-3d__shadow"></div>
+            </div>
+            <span class="equation__object-label">EVIDENCE / HAT / 01</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <a class="brand brand--footer" href="#top" aria-label="返回顶部">
+          <span class="brand__tile"><small>35</small><b>Br</b></span>
+          <span class="brand__word">eaking</span>
+          <span class="brand__tile"><small>56</small><b>Ba</b></span>
+          <span class="brand__word">d</span>
+        </a>
+        <p>一份关于选择、变化与代价的非官方互动剧情档案。人物图像仅用于剧情介绍。</p>
+        <div class="footer__meta">
+          <span>ABQ / 35.0844° N</span>
+          <span>CASE STATUS: CLOSED</span>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="event-dialog" id="eventDialog" aria-labelledby="dialogTitle">
+      <div class="event-dialog__backdrop" data-dialog-close></div>
+      <article class="event-dialog__panel">
+        <button class="event-dialog__close" type="button" data-dialog-close aria-label="关闭事件档案">
+          <span></span><span></span>
+        </button>
+        <div class="event-dialog__header">
+          <span id="dialogCase">INCIDENT 001</span>
+          <b id="dialogSeason">SEASON 01</b>
+        </div>
+        <div class="event-dialog__visual" id="dialogVisual">
+          <span></span><i></i><b></b>
+          <em id="dialogCode">CATALYST</em>
+        </div>
+        <p class="event-dialog__kicker" id="dialogKicker">THE CATALYST</p>
+        <h2 id="dialogTitle">癌症诊断</h2>
+        <p class="event-dialog__text" id="dialogText"></p>
+        <div class="event-dialog__impact">
+          <span>影响指数</span>
+          <i><b id="dialogImpact"></b></i>
+          <strong id="dialogImpactValue">82%</strong>
+        </div>
+        <div class="event-dialog__tags" id="dialogTags"></div>
+        <div class="event-dialog__nav">
+          <button type="button" id="dialogPrev">← 上一事件</button>
+          <button type="button" id="dialogNext">下一事件 →</button>
+        </div>
+      </article>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "breaking-bad-story-archive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An immersive, cinematic Breaking Bad story homepage.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs"
+  }
+}
