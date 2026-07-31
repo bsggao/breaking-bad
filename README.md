@@ -2,7 +2,7 @@
 
 一个围绕《Breaking Bad》人物、五季剧情流程与关键事件制作的沉浸式单页主页。
 
-页面不依赖第三方框架，包含：
+项目使用 React + Vite 实现，包含：
 
 - 可交互的 3D 化学元素立方体、轨道与蓝色晶体
 - 六张可翻转的人物档案卡
@@ -16,9 +16,17 @@
 ## 本地预览
 
 ```bash
+npm install
 npm run dev
 ```
 
 浏览器打开 `http://127.0.0.1:4173`。
 
-也可以直接双击 `index.html` 预览。
+## 生产构建
+
+```bash
+npm run build
+npm run preview
+```
+
+页面组件位于 `src/components`，剧情与人物数据集中维护在 `src/data.js`，静态图片由 `public/assets` 提供。
