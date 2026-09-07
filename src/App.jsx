@@ -3,6 +3,7 @@ import CharacterGrid from "./components/CharacterGrid";
 import EventArchive from "./components/EventArchive";
 import EventDialog from "./components/EventDialog";
 import Header from "./components/Header";
+import ParticleWordmark from "./components/ParticleWordmark";
 import SeasonLab from "./components/SeasonLab";
 import usePageEffects from "./hooks/usePageEffects";
 
@@ -53,7 +54,15 @@ export default function App() {
     <Header />
 
     <main id="main">
-      <section className="hero" id="top" aria-labelledby="hero-title">
+      <section className="particle-intro" id="top" aria-label="Breaking Bad 粒子交互">
+        <ParticleWordmark />
+        <button className="scroll-cue" type="button" data-scroll="#story-intro" aria-label="向下探索剧情">
+          <span>SCROLL TO REACT</span>
+          <i><b></b></i>
+        </button>
+      </section>
+
+      <section className="hero" id="story-intro" aria-labelledby="hero-title">
         <canvas id="chemCanvas" aria-hidden="true"></canvas>
         <div className="hero__grid" aria-hidden="true"></div>
         <div className="desert-layer desert-layer--far" aria-hidden="true"></div>

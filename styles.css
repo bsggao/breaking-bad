@@ -544,6 +544,47 @@ svg {
   max-width: 710px;
 }
 
+.particle-intro {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 75% 45%, rgba(27, 111, 67, 0.25), transparent 55%),
+    radial-gradient(ellipse at 20% 100%, rgba(184, 223, 62, 0.09), transparent 50%),
+    #06110c;
+}
+
+.particle-wordmark {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.particle-wordmark__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.particle-wordmark__fallback {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  font: 800 min(12vw, 30svh, 220px) / 1 Arial, sans-serif;
+  letter-spacing: -0.045em;
+  color: var(--acid-bright);
+  background: linear-gradient(100deg, #f0f3dd, #d6eee6);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.particle-wordmark.is-live .particle-wordmark__canvas { opacity: 1; }
+.particle-wordmark.is-live .particle-wordmark__fallback { visibility: hidden; }
+
 .eyebrow {
   display: flex;
   align-items: center;
@@ -573,7 +614,7 @@ svg {
 .hero h1 {
   margin: 0;
   font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
-  font-size: clamp(3.6rem, 6.3vw, 6.5rem);
+  font-size: clamp(3.6rem, 6.3vw, 5.5rem);
   font-weight: 500;
   line-height: 0.98;
   letter-spacing: -0.07em;
@@ -581,6 +622,7 @@ svg {
 
 .hero__line {
   display: block;
+  white-space: nowrap;
 }
 
 .hero__line--acid {
